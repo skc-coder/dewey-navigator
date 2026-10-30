@@ -1,9 +1,9 @@
 {
   "id": "dewey-navigator",
   "name": "Dewey Navigator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "minAppVersion": "1.0.0",
-  "description": "Right-sidebar hierarchical book outline, chapter context, and step navigation powered dynamically by Dewey decimal frontmatter properties.",
-  "author": "Antigravity",
+  "description": "Organize notes into a navigable sidebar hierarchy and live outlines using YAML Dewey Decimal properties (dwno).",
+  "author": "skc-coder",
   "isDesktopOnly": false
 }
