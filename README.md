@@ -1,5 +1,7 @@
 # Dewey Navigator
 
+https://community.obsidian.md/plugins/dewey-navigator
+
 Dewey Navigator organizes Obsidian notes using decimal numbers stored in YAML frontmatter.
 
 Add a `dwno` property to a note, and Dewey Navigator uses it to build the sidebar hierarchy, chapter indexes, topic navigation, and note outlines.
@@ -31,36 +33,6 @@ The filename does not matter. For example, the note can be named:
 `A simple note.md`
 
 Dewey Navigator uses `dwno` to organize it, regardless of its filename.
-
-## Setup & Installation
-
-### Manual Installation
-1. Download `main.js`, `manifest.json`, and `styles.css` from the [latest release](https://github.com/skc-coder/dewey-navigator/releases).
-2. In your Obsidian vault, navigate to `.obsidian/plugins/` and create a directory named `dewey-navigator`.
-3. Place `main.js`, `manifest.json`, and `styles.css` into `.obsidian/plugins/dewey-navigator/`.
-4. Reload Obsidian and enable **Dewey Navigator** under **Settings > Community plugins**.
-
-### Running the Code & Development
-
-To test or modify Dewey Navigator locally:
-
-```bash
-# Clone the repository
-git clone https://github.com/skc-coder/dewey-navigator.git
-cd dewey-navigator
-
-# Link or copy files to your vault plugin folder
-mkdir -p "/path/to/your/vault/.obsidian/plugins/dewey-navigator"
-cp main.js manifest.json styles.css "/path/to/your/vault/.obsidian/plugins/dewey-navigator/"
-```
-
-### Update & Run
-
-```bash
-cd dewey-navigator
-git pull
-cp main.js manifest.json styles.css "/path/to/your/vault/.obsidian/plugins/dewey-navigator/"
-```
 
 ## How It Works
 
