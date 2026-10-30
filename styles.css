@@ -1,0 +1,539 @@
+/* ==========================================================================
+   Dewey Navigator - Apple Design Philosophy Theme
+   Clean cards, unified groupings, hairline dividers, user font inheritance
+   ========================================================================== */
+
+/* View Root Container - Inherits user's chosen Obsidian font */
+.dewey-nav-view {
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: var(--font-ui-small, 13px);
+  line-height: var(--line-height-tight, 1.4);
+  color: var(--text-normal);
+  background-color: var(--background-primary);
+  overflow-y: auto;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Notice Banners */
+.dewey-nav-banner {
+  padding: 10px 12px;
+  border-radius: var(--radius-m, 8px);
+  background: var(--background-secondary);
+  border: 1px dashed var(--background-modifier-border);
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller, 11.5px);
+  line-height: 1.45;
+  margin-top: 8px;
+}
+
+.dewey-nav-empty-msg {
+  font-size: var(--font-ui-smaller, 11.5px);
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 4px 2px;
+}
+
+/* Sidebar Section Cards */
+.dewey-nav-section {
+  margin-bottom: 12px;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m, 8px);
+  padding: 8px 10px;
+  transition: border-color 0.15s ease;
+}
+
+.dewey-nav-section:hover {
+  border-color: var(--background-modifier-border-hover, var(--background-modifier-border));
+}
+
+/* Section Header */
+.dewey-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 2px 2px 6px 2px;
+  transition: color 0.12s ease;
+}
+
+.dewey-nav-header:hover {
+  color: var(--text-normal);
+}
+
+.dewey-nav-header-left {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.dewey-nav-header-left svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.dewey-nav-header .toggle-icon svg {
+  width: 10px;
+  height: 10px;
+  fill: currentColor;
+  color: var(--text-muted);
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dewey-nav-header.collapsed .toggle-icon svg {
+  transform: rotate(-90deg);
+}
+
+.dewey-nav-content.collapsed {
+  display: none;
+}
+
+/* Breadcrumb Trail */
+.dewey-nav-trail {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  padding: 6px 10px;
+  background: var(--background-secondary);
+  border-radius: var(--radius-m, 6px);
+  border: 1px solid var(--background-modifier-border);
+}
+
+.dewey-nav-trail a {
+  color: var(--text-accent);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.dewey-nav-trail a:hover {
+  text-decoration: underline;
+}
+
+.dewey-nav-trail .separator {
+  opacity: 0.5;
+  font-size: 10px;
+}
+
+.dewey-nav-trail .current-node {
+  color: var(--text-normal);
+  font-weight: 600;
+}
+
+/* Decimal Pill Badge */
+.dwno-badge {
+  font-family: var(--font-monospace);
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--text-normal);
+  background-color: var(--background-modifier-hover);
+  border: 1px solid var(--background-modifier-border);
+  padding: 1px 5px;
+  border-radius: var(--radius-s, 4px);
+  flex-shrink: 0;
+  letter-spacing: -0.01em;
+}
+
+/* Step Navigation (Previous / Next) */
+.dewey-nav-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.dewey-nav-box {
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m, 6px);
+  padding: 7px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  cursor: pointer;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+
+.dewey-nav-box:hover {
+  background: var(--background-modifier-hover);
+  border-color: var(--interactive-accent);
+}
+
+.dewey-nav-box.disabled {
+  opacity: 0.45;
+  cursor: default;
+  background: transparent;
+  border-style: dashed;
+}
+
+.dewey-nav-box.disabled:hover {
+  background: transparent;
+  border-color: var(--background-modifier-border);
+}
+
+.dewey-nav-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dewey-nav-label svg {
+  width: 11px;
+  height: 11px;
+  fill: currentColor;
+}
+
+.dewey-nav-title {
+  font-size: 12.5px;
+  color: var(--text-normal);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dewey-nav-box:hover .dewey-nav-title {
+  color: var(--text-accent);
+}
+
+/* Tree & Hierarchy Items */
+.dewey-nav-tree {
+  list-style: none;
+  padding-left: 0;
+  margin: 4px 0 0 0;
+}
+
+.dewey-nav-item {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 4px 6px;
+  border-radius: var(--radius-s, 4px);
+  margin: 1px 0;
+  cursor: pointer;
+  transition: background 0.12s ease;
+  position: relative;
+}
+
+.dewey-nav-item:hover {
+  background: var(--background-modifier-hover);
+}
+
+.dewey-nav-item.active {
+  background: var(--background-modifier-hover);
+  border-left: 3px solid var(--interactive-accent);
+  padding-left: 5px;
+}
+
+.dewey-nav-item.active .dwno-badge {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent, #ffffff);
+  border-color: var(--interactive-accent);
+}
+
+.dewey-nav-item.active .note-title {
+  color: var(--text-accent);
+  font-weight: 600;
+}
+
+.dewey-nav-item .note-title {
+  flex-grow: 1;
+  font-size: 12.5px;
+  color: var(--text-normal);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* In-Note Header / Custom Outline */
+.dewey-nav-outline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin-top: 4px;
+}
+
+.dewey-nav-outline-item {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 3px 6px;
+  border-radius: var(--radius-s, 4px);
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
+  position: relative;
+}
+
+.dewey-nav-outline-item:hover {
+  background: var(--background-modifier-hover);
+  color: var(--text-accent);
+}
+
+.dewey-nav-outline-item.active {
+  background: var(--background-modifier-hover);
+  border-left: 3px solid var(--interactive-accent);
+  padding-left: 5px;
+}
+
+.dewey-nav-outline-item.active .note-title {
+  color: var(--text-accent);
+  font-weight: 600;
+}
+
+.dewey-nav-heading-h1 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-normal);
+  padding-left: 0;
+}
+
+.dewey-nav-heading-h2 {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-normal);
+  padding-left: 10px;
+}
+
+.dewey-nav-heading-h3 {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+  padding-left: 20px;
+}
+
+.dewey-nav-heading-h4,
+.dewey-nav-heading-h5,
+.dewey-nav-heading-h6 {
+  font-size: 11.5px;
+  font-weight: 400;
+  color: var(--text-muted);
+  padding-left: 30px;
+}
+
+.dewey-nav-heading-prefix {
+  font-family: var(--font-monospace);
+  font-size: 10px;
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Settings Tab Styling - Apple-Style Group Cards & Hairlines
+   ========================================================================== */
+
+.dewey-nav-settings-container {
+  padding-bottom: 40px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.dewey-nav-section-title {
+  margin-top: 26px;
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  padding-left: 2px;
+}
+
+/* Apple-style Group Card Container */
+.dewey-nav-settings-container .dewey-nav-card {
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m, 10px);
+  padding: 0 16px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Direct setting item inside a card */
+.dewey-nav-settings-container .dewey-nav-card > .setting-item {
+  border-top: none;
+  border-bottom: 1px solid var(--background-modifier-border);
+  padding: 12px 0;
+  margin: 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.dewey-nav-settings-container .dewey-nav-card > .setting-item:last-child {
+  border-bottom: none;
+}
+
+/* Nested Sub-Setting Rows (Apple System Settings Hierarchical Sub-options) */
+.dewey-nav-settings-container .dewey-nav-card > .setting-item.dewey-nav-subrow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin: 0;
+  padding: 8px 0 8px 36px;
+  border-radius: 0;
+  border-bottom: 1px solid var(--background-modifier-border);
+  transition: opacity 0.15s ease;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Crisp vertical line indicator along left margin */
+.dewey-nav-settings-container .dewey-nav-card > .setting-item.dewey-nav-subrow::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--interactive-accent);
+  border-radius: 0;
+}
+
+.dewey-nav-settings-container .dewey-nav-card > .setting-item.dewey-nav-subrow.is-disabled {
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+.dewey-nav-settings-container .dewey-nav-card > .setting-item.dewey-nav-subrow.is-disabled::before {
+  background-color: var(--background-modifier-border);
+}
+
+/* Parent setting items in cards: clear readable primary size */
+.dewey-nav-settings-container .dewey-nav-card > .setting-item:not(.dewey-nav-subrow) .setting-item-name {
+  font-size: var(--font-ui-medium, 14px);
+  font-weight: 500;
+  color: var(--text-normal);
+}
+
+/* Sub-setting items: distinctly smaller font and muted tone (Apple sub-item style) */
+.dewey-nav-settings-container .dewey-nav-card > .setting-item.dewey-nav-subrow .setting-item-info {
+  margin-left: 0;
+  padding-left: 0;
+  flex: 1 1 auto;
+}
+
+.dewey-nav-settings-container .dewey-nav-card > .setting-item.dewey-nav-subrow .setting-item-name {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+.dewey-nav-settings-container .dewey-nav-card > .setting-item.dewey-nav-subrow .setting-item-description {
+  font-size: 10.5px;
+  color: var(--text-faint);
+  line-height: 1.35;
+}
+
+/* Normalize Form Controls & Inputs inside Settings Cards across Themes */
+.dewey-nav-settings-container .dewey-nav-card .setting-item-control input[type="text"],
+.dewey-nav-settings-container .dewey-nav-card .setting-item-control input[type="search"] {
+  max-width: 240px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: var(--font-ui-small, 13px);
+}
+
+.dewey-nav-card .setting-item-control select {
+  max-width: 240px;
+  box-sizing: border-box;
+}
+
+.dewey-nav-card .setting-item-info {
+  flex: 1 1 50%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.dewey-nav-card .setting-item-control {
+  flex: 0 1 auto;
+  box-sizing: border-box;
+}
+
+/* Card Header for Custom Field */
+.dewey-nav-field-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0 8px 0;
+  border-bottom: 1px solid var(--background-modifier-border);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.dewey-nav-field-title {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text-normal);
+}
+
+.dewey-nav-custom-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Guide Modal */
+.dewey-nav-guide-modal {
+  padding: 10px;
+}
+
+.dewey-nav-guide-modal h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.dewey-nav-guide-modal h3 {
+  margin-top: 18px;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.dewey-nav-guide-modal pre {
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m, 6px);
+  padding: 10px 12px;
+  font-family: var(--font-monospace);
+  font-size: 12px;
+  overflow-x: auto;
+}
+
+.dewey-nav-guide-modal ul {
+  padding-left: 20px;
+  line-height: 1.55;
+}
+
+.dewey-nav-example-card {
+  background: var(--background-secondary);
+  border-left: 3px solid var(--interactive-accent);
+  border-radius: var(--radius-s, 4px);
+  padding: 10px 14px;
+  margin: 10px 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+}
