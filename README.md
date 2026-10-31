@@ -18,21 +18,24 @@ Add a `dwno` property to a note, and Dewey Navigator uses it to build the sideba
 
 ## Quick Start
 
-Add a `dwno` property to your note's YAML frontmatter:
+Add `dwno` and optional `title` properties to your note's YAML frontmatter:
 
 ```yaml
 ---
+title: "Relational Data Model"
 dwno: "00.01.03.01"
 ---
 ```
 
-The decimal number determines the note's position in the hierarchy.
+- **`dwno`**: The dot-separated decimal number that determines the note's position in the knowledge hierarchy.
+- **`title`**: The display title shown across the Dewey Navigator sidebar, breadcrumbs, outlines, and step navigation. If omitted, Dewey Navigator cleanly falls back to the note file's basename.
+- **Fallback behavior**: When `dwno` is not present in a note, Dewey Navigator still renders the "This Note Outline" section, while showing a polite notice indicating that decimal sequencing requires a `dwno` property.
 
 The filename does not matter. For example, the note can be named:
 
 `A simple note.md`
 
-Dewey Navigator uses `dwno` to organize it, regardless of its filename.
+Dewey Navigator uses `dwno` to organize it and `title` to display it, regardless of its filename.
 
 ## How It Works
 

@@ -83,16 +83,16 @@ class DeweyGuideModal extends Modal {
 
     contentEl.createEl("h3", { text: "Quick Start" });
     contentEl.createEl("p", {
-      text: "Add a dwno property to your note's YAML frontmatter:",
+      text: "Add dwno and optional title properties to your note's YAML frontmatter:",
     });
 
     const codePre = contentEl.createEl("pre");
     codePre.createEl("code", {
-      text: `---\ndwno: "00.01.03.01"\n---`,
+      text: `---\ntitle: "Relational Data Model"\ndwno: "00.01.03.01"\n---`,
     });
 
     contentEl.createEl("p", {
-      text: "The decimal number determines the note's position in the hierarchy.",
+      text: "The decimal number determines the note's position in the hierarchy, while 'title' specifies the clean display name shown across all Dewey Navigator components (falling back to the note file basename if omitted).",
     });
 
     contentEl.createEl("p", {
@@ -105,7 +105,7 @@ class DeweyGuideModal extends Modal {
     });
 
     contentEl.createEl("p", {
-      text: "Dewey Navigator uses dwno to organize it, regardless of its filename.",
+      text: "Dewey Navigator uses dwno to organize it and title to display it, regardless of its filename.",
     });
 
     new Setting(contentEl).addButton((btn) =>
@@ -753,9 +753,15 @@ class DeweyNavView extends ItemView {
     if (!activeNote) {
       const trailEl = container.createDiv({ cls: "dewey-nav-trail" });
       trailEl.createSpan({ text: activeFile.basename, cls: "current-node" });
+
+      // Always show Note Outline even if dwno is missing
+      if (this.plugin.settings.enableOutline) {
+        this.renderNoteOutlineSection(container, activeFile);
+      }
+
       container.createDiv({
         cls: "dewey-nav-banner",
-        text: 'This note does not have a "dwno" frontmatter property.',
+        text: 'This note does not have a "dwno" frontmatter property. Dewey navigation, rollups, and topic steps require a "dwno" property.',
       });
       return;
     }
