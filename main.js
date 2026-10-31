@@ -761,7 +761,7 @@ class DeweyNavView extends ItemView {
 
       container.createDiv({
         cls: "dewey-nav-banner",
-        text: 'This note does not have a "dwno" frontmatter property. Dewey navigation, rollups, and topic steps require a "dwno" property.',
+        text: 'This note does not have a "dwno" frontmatter property.',
       });
       return;
     }
